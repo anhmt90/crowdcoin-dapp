@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Button, Input, Message } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
 
 
 import Layout from '../../components/Layout';

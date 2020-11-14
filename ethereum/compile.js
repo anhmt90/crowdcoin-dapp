@@ -28,7 +28,7 @@ const output = JSON.parse(solc.compile(JSON.stringify(input)));
 
 fs.ensureDirSync(buildPath);
 
-console.log("OUTPUT", output.contracts['Campaign.sol']);
+// console.log("OUTPUT", output.contracts['Campaign.sol']);
 
 for (let contract in output.contracts['Campaign.sol']) {
     fs.outputJsonSync(
@@ -36,5 +36,7 @@ for (let contract in output.contracts['Campaign.sol']) {
         output.contracts['Campaign.sol'][contract]
     );
 }
+
+console.log("Compiling done!")
 
 
