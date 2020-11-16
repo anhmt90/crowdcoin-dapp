@@ -7,8 +7,7 @@
     "dev": "next dev",
     "test": "mocha --timeout 10000 --watch",
     "deploy": "env-cmd -f .env.local node ethereum/deploy.js",
-    "compile": "node ethereum/compile.js",
-    "redeploy": "yarn compile && yarn deploy"
+    "redeploy": "node ethereum/compile.js && npm run deploy"
   },
   "author": "",
   "license": "ISC",
