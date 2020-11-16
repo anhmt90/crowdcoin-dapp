@@ -54,7 +54,7 @@ const CampaignNew = () => {
                     />
                 </Form.Field>
                 <Message error>
-                    <Message.Header>Unable to create new Campaign!</Message.Header>
+                    <Message.Header>Failed to create new Campaign!</Message.Header>
                     <p>{errorMsg}</p>
                 </Message>
                 <Button loading={loading} primary>Create</Button>

@@ -13,7 +13,6 @@ import ContributeForm from '../../components/ContributeForm';
 export async function getServerSideProps({ query }) {
     const campaign = getCampaignInstance(query.address);
     const summary = await campaign.methods.getSummary().call();
-    console.log(summary);
     return {
         props: {
             address: query.address,
@@ -42,7 +41,7 @@ const CampaignDetail = (props) => {
             {
                 header: manager,
                 meta: 'Address of Manager',
-                description: 'The manger created this campign and can create requests to withdraw money.',
+                description: 'The manger created this campaign and can create requests to withdraw money.',
                 style: { overflowWrap: 'break-word' },
 
             },
