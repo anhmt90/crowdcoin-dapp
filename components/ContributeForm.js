@@ -10,15 +10,16 @@ const ContributeForm = ({ campaignAddress }) => {
 
     const [value, setValue] = useState('');
     const [errorMsg, setErrorMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
     const [loading, setLoading] = useState(false);
 
     const onSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
         setErrorMsg('');
+        setSuccessMsg('');
 
         const campaign = getCampaignInstance(campaignAddress);
-
 
 
         try {
@@ -28,6 +29,7 @@ const ContributeForm = ({ campaignAddress }) => {
                 value: web3.utils.toWei(value, 'ether')
             });
 
+            setSuccessMsg(`You have contributed ${value} ether to this Campaign. Thank you!`);
             router.replace(`/campaigns/${campaignAddress}`);
         } catch (err) {
             setErrorMsg(err.message);
@@ -38,9 +40,9 @@ const ContributeForm = ({ campaignAddress }) => {
     };
 
     return (
-        <Form onSubmit={onSubmit} error={!!errorMsg}>
+        <Form onSubmit={onSubmit} error={!!errorMsg} success={!!successMsg}>
             <Form.Field>
-                <label>Amount to Contribute</label>
+                <label>Amount to contribute</label>
                 <Input
                     value={value}
                     onChange={event => setValue(event.target.value)}
@@ -52,6 +54,11 @@ const ContributeForm = ({ campaignAddress }) => {
                 <Message.Header>Fail to make contribution!</Message.Header>
                 <p>{errorMsg}</p>
             </Message>
+            <Message success>
+                <Message.Header>Success!</Message.Header>
+                <p>{successMsg}</p>
+            </Message>
+
             <Button primary loading={loading}>Contribute</Button>
         </Form>
     );

@@ -44,7 +44,7 @@ const CampaignIndex = ({ campaigns }) => {
 
     return (
         <Layout>
-            <h3>Open Campaigns</h3>
+            <h3>Campaigns on Rinkeby Testnet</h3>
 
             <Link href="/campaigns/new">
                 <a className="item">
