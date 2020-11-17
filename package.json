@@ -4,6 +4,9 @@
   "description": "A small crowdfunding platfor based on Ethereum blockchain to learn building D-apps",
   "main": "index.js",
   "scripts": {
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "npm run build",
+    "build": "next build",
     "dev": "next dev",
     "test": "mocha --timeout 10000 --watch",
     "deploy": "env-cmd -f .env.local node ethereum/deploy.js",
